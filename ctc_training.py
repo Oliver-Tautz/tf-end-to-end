@@ -39,6 +39,7 @@ sess.run(tf.global_variables_initializer())
 
 # Training loop
 for epoch in range(max_epochs):
+    print(epoch)
     batch = primus.nextBatch(params)
 
     _, loss_value = sess.run([train_opt, loss],
@@ -49,7 +50,7 @@ for epoch in range(max_epochs):
                                 rnn_keep_prob: dropout,
                             })
 
-    if epoch % 1000 == 0:
+    if epoch % 10 == 0:
         # VALIDATION
         print ('Loss value at epoch ' + str(epoch) + ':' + str(loss_value))
         print ('Validating...')
